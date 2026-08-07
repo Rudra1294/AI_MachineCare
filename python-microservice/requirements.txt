@@ -1,0 +1,36 @@
+# .venv\Scripts\activate   To activate the virtual environment
+# pip install -r requirements.txt  To install the dependencies listed in requirements.txt
+# --- Web & API Framework ---
+fastapi
+uvicorn[standard]
+pydantic
+
+# --- Data Science & Machine Learning ---
+pandas
+numpy
+scikit-learn
+imbalanced-learn
+joblib
+scipy
+
+# --- Quantum Computing (Qiskit Ecosystem) ---
+qiskit
+qiskit-machine-learning
+qiskit-optimization
+qiskit-algorithms
+
+# --- For Classic algorithms --- 
+# --- Web Framework & Server (main.py) ---
+fastapi
+uvicorn[standard]
+
+# --- Machine Learning & Data Processing (xgboost_model.py & preprocess.py) ---
+xgboost
+scikit-learn
+pandas
+numpy
+imbalanced-learn
+joblib
+
+# --- Optimization Math (milp_model.py) ---
+scipy

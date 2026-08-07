@@ -1,0 +1,59 @@
+# Node.js
+node-backend/node_modules/
+node-backend/npm-debug.log
+
+# Python
+python-microservice/.venv/
+python-microservice/__pycache__/
+python-microservice/*.pyc
+
+# Environment Variables & Secrets (CRITICAL)
+.env
+*.env
+.env.local
+
+# Jupyter Notebook checkpoints (from your testing)
+.ipynb_checkpoints/
+
+# Do not commit the massive raw dataset to GitHub (optional, but good practice)
+python-microservice/app/data/*.csv
+
+#Do not upload the trained model to GitHub
+python-microservice/app/models/*.pkl
+# ========================
+# Node.js & React Frontend
+# ========================
+node_modules/
+dist/
+build/
+npm-debug.log
+yarn-error.log
+
+# ========================
+# Python AI Engine
+# ========================
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+env/
+.env_python
+.pytest_cache/
+
+# Optional: Ignore large trained models (uncomment if your .joblib files are >100MB)
+# *.joblib
+# *.pkl
+
+# ========================
+# Environment & Secrets (CRITICAL)
+# ========================
+.env
+.env.local
+.env.development
+.env.production
+
+# ========================
+# OS Generated Files
+# ========================
+.DS_Store
+Thumbs.db
