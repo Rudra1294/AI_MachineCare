@@ -1,4 +1,4 @@
-# OptiMaintain: Quantum-Powered Predictive Maintenance System
+# AI_MachineCare: Quantum-Powered Predictive Maintenance System
 
 A full-stack, microservices-based enterprise application that bridges classical web architecture with Quantum Machine Learning (QML). This system monitors factory machine telemetry, predicts failure risks, and optimizes technician dispatch schedules using hybrid classical-quantum algorithms.
 
