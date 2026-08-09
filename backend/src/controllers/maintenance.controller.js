@@ -22,7 +22,7 @@ const processFactoryData = async (req, res) => {
 
         // 2. Send to Python (ensure this URL matches your Python route)
         // const pythonBaseUrl = process.env.PYTHON_API_URL || 'http://127.0.0.1:8000';
-        const aiResponse = await axios.post(`${process.env.PYTHON_API_URL}/api/predict_and_schedule`, aiPayload);
+        const aiResponse = await axios.post(`${process.env.PYTHON_MICROSERVICE_URL}/api/predict_and_schedule`, aiPayload);
         const { predictions, milp_schedule, compute_engine, prediction_model } = aiResponse.data;
 
         const savedLogs = [];

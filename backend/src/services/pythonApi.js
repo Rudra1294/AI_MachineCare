@@ -2,7 +2,7 @@ const axios = require('axios');
 
 const getPredictionAndSchedule = async (sensorPayload, availableTechnicians) => {
     try {
-        const response = await axios.post(`${process.env.PYTHON_API_URL}/api/predict_and_schedule`, {
+        const response = await axios.post(`${process.env.PYTHON_MICROSERVICE_URL}/api/predict_and_schedule`, {
             available_technicians: availableTechnicians,
             machines: sensorPayload
         });
