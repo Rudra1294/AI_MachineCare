@@ -4,6 +4,7 @@
 fastapi
 uvicorn[standard]
 pydantic
+gunicorn==20.1.0
 
 # --- Data Science & Machine Learning ---
 pandas
