@@ -18,8 +18,8 @@ const Dashboard = () => {
             try {
                 // Fetch real data from both Node.js endpoints simultaneously
                 const [historyRes, techRes] = await Promise.all([
-                    axios.get('http://localhost:5000/api/maintenance/history'),
-                    axios.get('http://localhost:5000/api/technicians')
+                    axios.get(`${process.env.REACT_APP_API_URL}/api/maintenance/history`),
+                    axios.get(`${process.env.REACT_APP_API_URL}/api/technicians`)
                 ]);
 
                 const logs = historyRes.data;

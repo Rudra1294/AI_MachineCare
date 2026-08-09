@@ -22,7 +22,7 @@ const LivePrediction = () => {
     useEffect(() => {
         const fetchMachines = async () => {
             try {
-                const res = await axios.get('http://localhost:5000/api/machines');
+                const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/machines`);
                 setInventory(res.data);
                 
                 const initialFiltered = res.data.filter(m => m.type.toString() === '1');
@@ -73,7 +73,7 @@ const LivePrediction = () => {
                 }]
             };
 
-            const response = await axios.post('http://localhost:5000/api/maintenance/process', payload);
+            const response = await axios.post(`${process.env.REACT_APP_API_URL}/api/maintenance/process`, payload);
             const predictionData = response.data.predictions[0];
 
             setResult({
@@ -249,7 +249,7 @@ const LivePrediction = () => {
                                             disabled={!selectedTech || dispatchSuccess}
                                             onClick={async () => {
                                                 try {
-                                                    await axios.post('http://localhost:5000/api/maintenance/dispatch', {
+                                                    await axios.post(`${process.env.REACT_APP_API_URL}/api/maintenance/dispatch`, {
                                                         machine_id: formData.machine_id,
                                                         technician_id: selectedTech
                                                     });

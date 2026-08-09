@@ -24,8 +24,8 @@ const MaintenanceSchedule = () => {
     const fetchScheduleData = async () => {
         try {
             const [histRes, techRes] = await Promise.all([
-                axios.get('http://localhost:5000/api/maintenance/history'),
-                axios.get('http://localhost:5000/api/maintenance/technicians/available')
+                axios.get(`${process.env.REACT_APP_API_URL}/api/maintenance/history`),
+                axios.get(`${process.env.REACT_APP_API_URL}/api/maintenance/technicians/available`)
             ]);
             
             // Filter for ALL active tasks (Action Required, Pending, In Progress)
@@ -53,7 +53,7 @@ const MaintenanceSchedule = () => {
 
         setUpdatingId(task._id);
         try {
-            await axios.post('http://localhost:5000/api/maintenance/dispatch', {
+            await axios.post(`${process.env.REACT_APP_API_URL}/api/maintenance/dispatch`, {
                 machine_id: task.machine_id,
                 technician_id: techId // This now safely sends the guaranteed MongoDB _id
             });
@@ -95,7 +95,7 @@ const MaintenanceSchedule = () => {
 
         setUpdatingId(task._id);
         try {
-            await axios.put(`http://localhost:5000/api/maintenance/${task._id}`, { status: newStatus });
+            await axios.put(`${process.env.REACT_APP_API_URL}/api/maintenance/${task._id}`, { status: newStatus });
             setSchedule(prev => prev.map(t => 
                 t._id === task._id ? { ...t, ai_prediction: { ...t.ai_prediction, maintenance_status: newStatus } } : t
             ));
@@ -121,7 +121,7 @@ const MaintenanceSchedule = () => {
                     ...formData
                 }]
             };
-            const response = await axios.post('http://localhost:5000/api/maintenance/process', payload);
+            const response = await axios.post(`${process.env.REACT_APP_API_URL}/api/maintenance/process`, payload);
             const prediction = response.data.predictions[0];
             setVerificationResult(prediction.status);
         } catch (error) {
@@ -135,9 +135,9 @@ const MaintenanceSchedule = () => {
     const finalizeResolution = async () => {
         setIsVerifying(true);
         try {
-            await axios.put(`http://localhost:5000/api/maintenance/${verificationTask._id}`, { status: 'Resolved' });
+            await axios.put(`${process.env.REACT_APP_API_URL}/api/maintenance/${verificationTask._id}`, { status: 'Resolved' });
             // Free up the technician in the database
-            await axios.put(`http://localhost:5000/api/technicians/free/${verificationTask.machine_id}`).catch(() => {});
+            await axios.put(`${process.env.REACT_APP_API_URL}/api/technicians/free/${verificationTask.machine_id}`).catch(() => {});
             
             closeModal();
             fetchScheduleData();

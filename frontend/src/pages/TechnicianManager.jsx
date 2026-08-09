@@ -7,7 +7,7 @@ const TechnicianManager = () => {
     const [loading, setLoading] = useState(true);
     const [newTech, setNewTech] = useState({ name: '', employee_id: '', specialty: 'General' });
 
-    const API_URL = 'http://localhost:5000/api/technicians';
+    const API_URL = `${process.env.REACT_APP_API_URL}/api/technicians`;
 
     const fetchTechnicians = async () => {
         try {

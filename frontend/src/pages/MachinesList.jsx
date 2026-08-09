@@ -17,7 +17,7 @@ const MachinesList = () => {
 
     const fetchMachines = async () => {
         try {
-            const res = await axios.get('http://localhost:5000/api/machines');
+            const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/machines`);
             setMachines(res.data);
         } catch (error) {
             console.error("Error fetching machines:", error);
@@ -39,7 +39,7 @@ const MachinesList = () => {
         }
 
         try {
-            await axios.post('http://localhost:5000/api/machines', newMachine);
+            await axios.post(`${process.env.REACT_APP_API_URL}/api/machines`, newMachine);
             setShowAddModal(false);
             setNewMachine({ machine_id: '', type: '1' });
             fetchMachines(); // Refresh list
@@ -55,7 +55,7 @@ const MachinesList = () => {
         
         if (isConfirmed) {
             try {
-                await axios.delete(`http://localhost:5000/api/machines/${id}`);
+                await axios.delete(`${process.env.REACT_APP_API_URL}/api/machines/${id}`);
                 fetchMachines(); // Refresh list after deletion
             } catch (error) {
                 alert("Failed to delete the machine. Check console for details.");

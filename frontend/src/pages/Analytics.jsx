@@ -14,8 +14,8 @@ const Analytics = () => {
         const fetchAnalytics = async () => {
             try {
                 const [histRes, techRes] = await Promise.all([
-                    axios.get('http://localhost:5000/api/maintenance/history'),
-                    axios.get('http://localhost:5000/api/technicians')
+                    axios.get(`${process.env.REACT_APP_API_URL}/api/maintenance/history`),
+                    axios.get(`${process.env.REACT_APP_API_URL}/api/technicians`)
                 ]);
 
                 // 1. Group real failures by machine type (0: L, 1: M, 2: H)

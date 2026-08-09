@@ -24,7 +24,7 @@ const PredictionHistory = () => {
     useEffect(() => {
         const fetchHistory = async () => {
             try {
-                const response = await axios.get('http://localhost:5000/api/maintenance/history');
+                const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/maintenance/history`);
                 const sortedLogs = response.data.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
                 setHistory(sortedLogs);
             } catch (error) {
