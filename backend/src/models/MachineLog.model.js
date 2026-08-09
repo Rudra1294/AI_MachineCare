@@ -2,12 +2,12 @@ const mongoose = require('mongoose');
 
 const MachineLogSchema = new mongoose.Schema({
     machine_id: { type: String, required: true },
-    type: { type: Number }, // NEW: Added Type to the schema
-    air_temperature: { type: Number },
-    process_temperature: { type: Number },
-    rotational_speed: { type: Number },
-    torque: { type: Number },
-    tool_wear: { type: Number },
+    type: { type: Number, required: true }, // NEW: Added Type to the schema
+    air_temperature: { type: Number, required: true },
+    process_temperature: { type: Number, required: true },
+    rotational_speed: { type: Number, required: true },
+    torque: { type: Number, required: true },
+    tool_wear: { type: Number, required: true },
     timestamp: { type: Date, default: Date.now },
     ai_prediction: {
         status: { type: String },

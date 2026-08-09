@@ -14,10 +14,10 @@ joblib
 scipy
 
 # --- Quantum Computing (Qiskit Ecosystem) ---
-qiskit
-qiskit-machine-learning
-qiskit-optimization
-qiskit-algorithms
+# qiskit
+# qiskit-machine-learning
+# qiskit-optimization
+# qiskit-algorithms
 
 # --- For Classic algorithms --- 
 # --- Web Framework & Server (main.py) ---
